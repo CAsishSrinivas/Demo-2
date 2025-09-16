@@ -1,25 +1,8 @@
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
-
+name: CI
+on: push
 jobs:
-  Explore-GitHub-Actions:
-    runs-on: self-hosted
+  prod-check:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
     steps:
-      - run: Write-Host "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-        shell: pwsh
-      - run: Write-Host "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-        shell: pwsh
-      - run: Write-Host "🔎 The name of your repository is '${{ github.repository }}'."
-        shell: pwsh
-      - name: Check out repository code
-        uses: actions/checkout@v5
-      - run: Write-Host "💡 The '${{ github.repository }}' repository has been cloned to the runner."
-        shell: pwsh
-      - run: Write-Host "🖥️ The workflow is now ready to test your code on the runner."
-        shell: pwsh
-      - name: List files in the repository
-        run: ls ${{ github.workspace }}
-        shell: pwsh
-      - run: Write-Host "🍏 This job's status is ${{ job.status }}."
-        shell: pwsh
+      - run: echo "Deploying to production server on branch $GITHUB_REF"
