@@ -9,7 +9,7 @@ jobs:
         shell: powershell
       - run: Write-Host "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
         shell: powershell
-      - run: Write-Host "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - run: Write-Host "🔎 The name of your repository is ${{ github.repository }}."
         shell: powershell
       - name: Check out repository code
         uses: actions/checkout@v5
