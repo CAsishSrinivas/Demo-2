@@ -7,24 +7,19 @@ jobs:
     runs-on: self-hosted
     steps:
       - run: Write-Host "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-        shell: powershell
+        shell: pwsh
       - run: Write-Host "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-        shell: powershell
+        shell: pwsh
       - run: Write-Host "🔎 The name of your repository is '${{ github.repository }}'."
-        shell: powershell
+        shell: pwsh
       - name: Check out repository code
         uses: actions/checkout@v5
       - run: Write-Host "💡 The '${{ github.repository }}' repository has been cloned to the runner."
-        shell: powershell
+        shell: pwsh
       - run: Write-Host "🖥️ The workflow is now ready to test your code on the runner."
-        shell: powershell
+        shell: pwsh
       - name: List files in the repository
         run: ls ${{ github.workspace }}
-        shell: powershell
+        shell: pwsh
       - run: Write-Host "🍏 This job's status is ${{ job.status }}."
-        shell: powershell
-env:
-  POWERSHELL_TELEMETRY_OPTOUT: 1
-  DOTNET_SYSTEM_GLOBALIZATION_INVARIANT: 1
-  # Forces PS to assume UTF-8
-  LC_ALL: en_US.UTF-8
+        shell: pwsh
