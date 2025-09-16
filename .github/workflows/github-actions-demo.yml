@@ -23,3 +23,8 @@ jobs:
         shell: powershell
       - run: Write-Host "🍏 This job's status is ${{ job.status }}."
         shell: powershell
+env:
+  POWERSHELL_TELEMETRY_OPTOUT: 1
+  DOTNET_SYSTEM_GLOBALIZATION_INVARIANT: 1
+  # Forces PS to assume UTF-8
+  LC_ALL: en_US.UTF-8
